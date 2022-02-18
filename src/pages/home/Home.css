@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgba(106, 163, 209, 0.801);
+    /* background-image: url("https://www.lifewire.com/thmb/dkpWXa9gh89Di6-xLzYz71Neufo=/650x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/passage_wallpaper_by_trenchmaker-d4pp3zd-5919d0673df78cf5fa42884c.jpg"); */
+    background-image: url("http://localhost:3000/groupCoverImage.png");
+    background-size: cover;
+    background-position: center center;
+}

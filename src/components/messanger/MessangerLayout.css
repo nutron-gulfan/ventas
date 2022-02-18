@@ -1,0 +1,858 @@
+.MessangerMainframe {
+    width: 100%;
+    height: 100vh;
+    border-radius: 20px;
+    overflow: auto;
+    padding: 10px;
+}
+
+.MessangerMainframe .innerFrame {
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    background: rgba(255, 255, 255, 0.144);
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 3.5px;
+}
+
+.MessangerMainframe .innerFrame h1 {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.contacts {
+    border-radius: 3px 0 0 3px;
+    flex: 3;
+    height: 100%;
+    overflow: hidden;
+    background: rgba(128, 191, 250, 0.61);
+    display: flex;
+    flex-direction: column;
+}
+
+.messages {
+    flex: 9;
+    height: 100%;
+    background-color: rgba(163, 223, 253, 0.856);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 0 3px 3px 0;
+}
+
+.userMessage {
+    text-align: right;
+}
+
+.contactMessage {
+    text-align: left;
+}
+
+.messageBox {
+    max-width: 60%;
+    width: fit-content;
+    padding: 3px 3px 3px 3px;
+    font-size: 1.3em;
+    display: inline-block;
+    background-color: rgba(221, 218, 218, 0.918);
+    margin: 5px 10px;
+    text-align: left;
+    box-shadow: 0 15px 15px -10px black;
+    position: relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.userMessage .messageBox {
+    background-color: rgba(221, 218, 218, 0.918);
+    color: rgb(32, 32, 32);
+    border-radius: 0 10px;
+    animation: usermsg 0.3s ease-out 0s 1 forwards;
+}
+
+.contactMessage .messageBox {
+    background-color: rgba(2, 78, 192, 0.918);
+    color: white;
+    border-radius: 10px 0;
+    animation: contactmsg 0.3s ease-out 0s 1 forwards;
+}
+
+@keyframes usermsg {
+    0% {
+        transform: translateX(100%);
+    }
+    50% {
+        transform: translateX(-20%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes contactmsg {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(20%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.userMessage .messageBox:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 0px;
+    height: 25px;
+    border-radius: 10px 10px 0px 100%;
+    width: 20px;
+    background: rgba(2, 78, 192, 0.918);
+}
+
+.contactMessage .messageBox:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0px;
+    height: 25px;
+    border-radius: 10px 10px 100% 0px;
+    width: 20px;
+    background-color: yellow;
+}
+
+.messageImage img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(calc(100%));
+    object-fit: contain;
+    width: 30px;
+    height: 30px;
+    border-radius: 0 50% 50% 0;
+    overflow: hidden;
+    background: rgba(2, 78, 192, 0.918);
+    box-shadow: 0 10px 15px -10px rgb(0, 0, 0);
+}
+
+.contactMessage .messageImage img {
+    right: 0;
+    transform: translateX(calc(100%));
+    border-radius: 0 50% 50% 0;
+    background: rgba(2, 78, 192, 0.918);
+}
+
+.userMessage .messageImage img {
+    left: 0;
+    transform: translateX(calc(-100%));
+    border-radius: 50% 0 0 50%;
+    background-color: rgba(221, 218, 218, 0.918);
+    ;
+}
+
+.userMessage .timeago {
+    font-size: 0.6em;
+    text-align: left;
+    width: 100%;
+    display: inline-block;
+    padding-right: 20px;
+    transform: translateY(0px);
+    color: rgba(2, 39, 71, 0.788);
+}
+
+.contactMessage .timeago {
+    font-size: 0.6em;
+    text-align: right;
+    width: 100%;
+    display: inline-block;
+    padding-left: 20px;
+    transform: translateY(0px);
+    color: rgba(147, 205, 255, 0.911);
+}
+
+.chatcategories {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 9%;
+}
+
+.chatcategories .categoryItem {
+    padding: 0px 30px;
+    height: 100%;
+    background-color: rgb(171, 224, 255);
+    color: rgb(51, 50, 50);
+    font-size: 1.2em;
+    border: none;
+    font-weight: 600;
+    border-right: 1px solid rgb(116, 169, 201);
+    ;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.chatcategories .categoryItem:hover {
+    background-color: rgba(9, 151, 207, 0.404);
+    color: black;
+    cursor: pointer;
+}
+
+.profileHolder {
+    position: relative;
+}
+
+.offline {
+    position: absolute;
+    bottom: 5px;
+    right: 2px;
+    padding: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 3px black;
+    background-color: rgb(206, 8, 8);
+}
+
+.online {
+    position: absolute;
+    bottom: 5px;
+    right: 2px;
+    padding: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 3px black;
+    background-color: rgb(6, 194, 37);
+}
+
+.newMessage {
+    background-color: rgb(0, 80, 172);
+    color: white;
+    padding: 5px;
+    text-align: center;
+    border-radius: 100%;
+}
+
+.myUser {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    align-items: center;
+    box-shadow: 0 1px 4px rgb(12, 106, 143);
+}
+
+.userDp {
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.userName {
+    text-transform: capitalize;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.allContacts {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.allContacts::-webkit-scrollbar {
+    width: 8px;
+    background: skyblue;
+}
+
+.allContacts::-webkit-scrollbar-thumb {
+    background: rgba(2, 93, 129, 0.514);
+    border-radius: 50px;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 10px;
+    background: rgb(147, 198, 231);
+    border-bottom: 1px solid rgba(10, 117, 160, 0.233);
+}
+
+.contactItem:hover {
+    background: rgba(190, 215, 216, 0.493);
+    cursor: pointer;
+}
+
+.contactDp {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.contactName {
+    width: 100%;
+    font-size: 1.3em;
+    text-transform: capitalize;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.chatOptions {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    padding: 0 10px;
+    background: rgb(175, 212, 243);
+}
+
+.chatOptions .searchContact {
+    width: 100%;
+    display: flex;
+}
+
+.searchbar {
+    width: 100%;
+    background: rgba(128, 179, 255, 0);
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+    padding: 0 10px;
+}
+
+.searchbar::placeholder {
+    color: rgba(0, 0, 0, 0.473);
+}
+
+.searchButton {
+    padding: 15px;
+    border: none;
+    outline: none;
+    background: rgba(128, 179, 255, 0);
+}
+
+.searchButton:hover {
+    background: rgba(9, 151, 207, 0.404);
+    cursor: pointer;
+}
+
+.addNewChat .addButton {
+    padding: 15px;
+    border: none;
+    outline: none;
+    background: rgba(128, 179, 255, 0);
+}
+
+.addNewChat .addButton:hover {
+    background: rgba(9, 151, 207, 0.404);
+    cursor: pointer;
+}
+
+.conversationSection {
+    height: 91%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.currentContact {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    background: rgba(106, 184, 236, 0.74);
+    cursor: pointer;
+}
+
+.allMessages {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.allMessages::-webkit-scrollbar {
+    width: 8px;
+    background: skyblue;
+}
+
+.allMessages::-webkit-scrollbar-thumb {
+    background: rgba(2, 93, 129, 0.514);
+    border-radius: 50px;
+}
+
+.typing {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.chatFeaturesHolder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px 0 0 5px;
+}
+
+.typing .typeBar {
+    width: 100%;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 1.3em;
+    color: rgba(54, 54, 54, 0.918);
+    resize: none;
+    height: 100%;
+}
+
+.typing input[type="file"] {
+    display: none;
+}
+
+.attachment {
+    font-size: 2em;
+    padding: 0 10px;
+    color: rgb(0, 67, 192);
+}
+
+.typing button {
+    padding: 10px;
+    background: rgb(0, 67, 192);
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    height: 100%;
+}
+
+.typing button:hover {
+    background: blue;
+}
+
+.profileSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.profileHere img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.usernameHere {
+    font-size: 1.4em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.671);
+}
+
+.interactionHere {
+    color: rgba(0, 0, 0, 0.568);
+    font-size: 1.3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.interactionHere i:hover {
+    color: black;
+}
+
+.conversationStart {
+    color: rgba(0, 0, 0, 0.39);
+    padding: 10px 0px;
+    font-size: 1.4em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-transform: capitalize;
+}
+
+.shareImgContainer {
+    width: 100%;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.212);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    bottom: 40px;
+}
+
+.shareImg {
+    height: 100%;
+    width: 100%;
+}
+
+.shareImg img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.shareCancelImg {
+    font-size: 2em;
+    color: rgb(255, 0, 0);
+    transition: .2s;
+    cursor: pointer;
+}
+
+.shareCancelImg:hover {
+    color: rgb(63, 29, 29);
+}
+
+.contactMessage .msgImage {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 7px 0 0 0;
+}
+
+.userMessage .msgImage {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 0 7px 0 0;
+}
+
+.coverImage {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.downloadIcon {
+    background-color: rgba(253, 253, 253, 0.288);
+    backdrop-filter: blur(4px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: 0.2s;
+    font-size: 1.4em;
+}
+
+.messageBox:hover .downloadIcon {
+    opacity: 1;
+}
+
+.downloadIcon abbr {
+    text-decoration: none;
+}
+
+.downloadIcon i {
+    cursor: pointer;
+    transition: .1s;
+    color: rgb(6, 102, 6);
+    padding-left: 10px;
+}
+
+.downloadIcon i:hover {
+    transform: scale(1.3);
+    color: black;
+}
+
+.fileName {
+    font-size: 1.1em;
+    width: 100%;
+    word-break: break-all;
+    text-align: center;
+    color: rgb(26, 24, 24);
+    user-select: none;
+    user-zoom: none;
+}
+
+.vidcontainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.192);
+    z-index: 99;
+}
+
+.video {
+    width: 50%;
+    aspect-ratio: 1;
+    max-height: 300px;
+    position: relative;
+    background-size: auto 70%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: none;
+}
+
+.video video {
+    width: 100% !important;
+    height: 100%;
+    object-fit: contain;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.myId {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.videoName {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: capitalize;
+    font-size: 1.1em;
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.678);
+    backdrop-filter: blur(3px);
+    transition: .3s;
+}
+
+.video:hover .videoName {
+    opacity: 1;
+}
+
+.callButton {
+    padding: 10px;
+    font-size: 1.1em;
+    border: none;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.hangUpCall {
+    background: rgb(250, 154, 154);
+    color: red;
+}
+
+.dialUpCall {
+    background-color: rgb(7, 230, 74);
+    color: rgb(0, 139, 0);
+}
+
+.caller {
+    font-size: .7em;
+    text-align: center;
+    color: rgb(51, 236, 51);
+    text-shadow: 0 0 2px black;
+}
+
+.caller button {
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+}
+
+.frameH {
+    position: relative;
+}
+
+.removeFriend {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    z-index: 999;
+    transform: translate(200%, -50%);
+    transition: .2s;
+    color: red;
+}
+
+.frameH:hover .removeFriend {
+    transform: translate(0%, -50%);
+    cursor: pointer;
+}
+
+.groupInfo {
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 99;
+    background: rgba(171, 219, 231, 0.938);
+    padding: .5em .5em 0em .5em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.closeButton {
+    color: rgb(90, 90, 90);
+    font-size: 2em;
+    position: absolute;
+    right: .5em;
+    top: .3em;
+    transition: .3s;
+}
+
+.closeButton:hover {
+    transform: scale(1.2);
+    color: chocolate;
+}
+
+.groupInfo .upperInfo {
+    height: auto;
+    background: radial-gradient(farthest-corner at 50% 20%, transparent 20%, black 80%), repeating-conic-gradient(from 45deg, rgb(4, 4, 22) 0deg 90deg, rgb(10, 85, 182) 90deg 180deg);
+    background-size: 100%, 0.5em 0.5em;
+}
+
+.groupDpholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1em;
+    transition: .3s;
+}
+
+.groupDpholder img {
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+    /* box-shadow: 0 0 50px gold; */
+    backdrop-filter: blur(2px);
+    padding: .2em;
+    transition: .3s;
+}
+
+.groupDpholder img:hover {
+    box-shadow: 0 0 200px rgb(255, 217, 3);
+    transform: scale(1.1);
+}
+
+.groupNameHolder {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: center;
+    font-size: 1.6em;
+    text-transform: capitalize;
+    font-weight: 600;
+    letter-spacing: .03em;
+    padding: .5em;
+    color: rgba(240, 248, 255, 0.781);
+}
+
+.groupDescHolder {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    color: rgba(240, 248, 255, 0.685);
+    padding-bottom: 1em;
+}
+
+.groupInfodevider {
+    border: none;
+    height: 3px;
+    background-color: rgba(76, 129, 129, 0.315);
+    margin: 1em 0;
+}
+
+.MembersTitle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.3em;
+    padding: 0.4em;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.totalMembers {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2em 1em;
+    color: rgba(2, 247, 55, 0.897);
+    font-size: 1.1em;
+    font-weight: 400;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.addMember {
+    color: rgba(2, 247, 55, 0.897);
+}
+
+.addMember:hover {
+    cursor: pointer;
+}
+
+.noMember {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.channelMemberListing {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.channelMemberListing::-webkit-scrollbar {
+    width: 8px;
+    background: skyblue;
+}
+
+.channelMemberListing::-webkit-scrollbar-thumb {
+    background: rgba(2, 93, 129, 0.514);
+    border-radius: 50px;
+}
+
+.listToAddMember .frameH {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.listToAddMember .removeFriend {
+    color: green;
+}
+
+.admin {
+    color: rgb(1, 143, 1);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

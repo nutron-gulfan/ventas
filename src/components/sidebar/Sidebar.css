@@ -1,0 +1,91 @@
+/* body{
+    background-image: url("../../images/technology.png");
+    background-size:auto 100%;
+    background-position:center center;
+} */
+
+.card {
+    width: 100%;
+    height: 200px;
+    border: 1px solid skyblue;
+}
+
+.profilePicture {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    animation: rotate-in 1s 0s ease-out 1;
+}
+
+.sideframe {
+    width: 70px;
+    padding: 5px;
+    background: rgba(190, 225, 241, 0.199);
+    height: 100vh;
+    box-shadow: 0px 0 5px rgba(250, 250, 250, 0.308);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(4px);
+    /* overflow: hidden; */
+    border-radius: 30px;
+    animation: slide-in .5s 0s ease-out 1;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(20%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes rotate-in {
+    0% {
+        transform: translateX(-100%) rotate(-360deg) scale(1.3);
+    }
+    50% {
+        transform: translateX(20%) rotate(60deg) scale(1.3);
+    }
+    100% {
+        transform: translateX(0%) rotate(0deg) scale(1);
+    }
+}
+
+.iconsSet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    align-items: center;
+    flex: 12;
+    font-size: 2em;
+    text-align: center;
+}
+
+.iconsSet span img {
+    transition: .2s;
+    width: 80%;
+    animation: slide-in var(--deley) 0s ease-out 1;
+}
+
+.iconsSet span img:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0px 5px 4px rgba(39, 38, 38, 0.541))
+}
+
+.logout {
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.logout:hover,
+.logout:focus {
+    color: rgb(17, 0, 255);
+    transform: scale(1.1);
+}

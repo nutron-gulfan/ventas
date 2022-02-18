@@ -1,0 +1,21 @@
+.TeamsMainframe {
+    width: 100%;
+    height: 100vh;
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.TeamsMainframe .innerFrame {
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    background: rgba(255, 255, 255, 0.144);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.TeamsMainframe .innerFrame h1 {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
