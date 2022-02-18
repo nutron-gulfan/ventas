@@ -4,7 +4,7 @@ import "./Login.css";
 
 const Login = ({user}) => {
     const google = () => {
-        window.open("http://localhost:5000/auth/google", "_self");
+        window.open("https://git.heroku.com/ventas-v1.git/auth/google", "_self");
     };
     return (
         <>
