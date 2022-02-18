@@ -136,7 +136,7 @@ const MessangerLayout = ({ user }) => {
                 newemail: addFriendName
             };
 
-            const addingFriend = await axios.post("https://ventas-v1.herokuapp.com//users/follow", infoFriend);
+            const addingFriend = await axios.post("https://ventas-v1.herokuapp.com/users/follow", infoFriend);
 
             socket.current.emit("sendMessage", {
                 senderEmail: user.emails[0].value,
@@ -160,7 +160,7 @@ const MessangerLayout = ({ user }) => {
                 newemail: friendToremove
             };
 
-            const removingFriend = await axios.post("https://ventas-v1.herokuapp.com//users/unfollow", infoFriend);
+            const removingFriend = await axios.post("https://ventas-v1.herokuapp.com/users/unfollow", infoFriend);
             socket.current.emit("sendMessage", {
                 senderEmail: user.emails[0].value,
                 recieverEmail: friendToremove,
@@ -183,7 +183,7 @@ const MessangerLayout = ({ user }) => {
             channelName: addFriendName
         };
 
-        const addingChannel = await axios.post("https://ventas-v1.herokuapp.com//Channels/create", infoFriend);
+        const addingChannel = await axios.post("https://ventas-v1.herokuapp.com/Channels/create", infoFriend);
         alert(addingChannel.data);
         setaddFriendName("");
         setUpdateContactList(!updateContactList);
@@ -196,7 +196,7 @@ const MessangerLayout = ({ user }) => {
             nameOfChannel: channelName
         };
 
-        const deletingChannel = await axios.post("https://ventas-v1.herokuapp.com//Channels/delete", infoFriend);
+        const deletingChannel = await axios.post("https://ventas-v1.herokuapp.com/Channels/delete", infoFriend);
         alert(deletingChannel.data);
         setUpdateContactList(!updateContactList);
     }
@@ -221,7 +221,7 @@ const MessangerLayout = ({ user }) => {
             newPost.img = fileName;
 
             try {
-                const upld = await axios.post("https://ventas-v1.herokuapp.com//upload", data);
+                const upld = await axios.post("https://ventas-v1.herokuapp.com/upload", data);
                 if (upld.status === 200) {
                     // console.log("upload ok");
                     // console.log(conversationId)
@@ -230,7 +230,7 @@ const MessangerLayout = ({ user }) => {
                         conversationId: conversationId,
                         senderId: user.emails[0].value,
                         recieverId: currentChat.email,
-                        text: { type: fileExt, src: "https://ventas-v1.herokuapp.com//images/" + fileName, message: newMessage }
+                        text: { type: fileExt, src: "https://ventas-v1.herokuapp.com/images/" + fileName, message: newMessage }
                     };
                     // console.log(message.text);
 
@@ -240,7 +240,7 @@ const MessangerLayout = ({ user }) => {
                         text: message.text.message
                     });
 
-                    const sendMessage = await axios.post("https://ventas-v1.herokuapp.com//message/", message);
+                    const sendMessage = await axios.post("https://ventas-v1.herokuapp.com/message/", message);
                     // console.log(sendMessage);
                     setFetchMessage([...fetchMessage, sendMessage.data]);
                     setNewMessage("");
@@ -269,7 +269,7 @@ const MessangerLayout = ({ user }) => {
             });
 
             // console.log(message);
-            const sendMessage = await axios.post("https://ventas-v1.herokuapp.com//message/", message);
+            const sendMessage = await axios.post("https://ventas-v1.herokuapp.com/message/", message);
             // console.log(sendMessage);
             setFetchMessage([...fetchMessage, sendMessage.data]);
             setNewMessage("");
@@ -300,7 +300,7 @@ const MessangerLayout = ({ user }) => {
             newPost.img = fileName;
 
             try {
-                const upld = await axios.post("https://ventas-v1.herokuapp.com//upload", data);
+                const upld = await axios.post("https://ventas-v1.herokuapp.com/upload", data);
                 if (upld.status === 200) {
                     // console.log("upload ok");
                     // console.log(conversationId)
@@ -309,7 +309,7 @@ const MessangerLayout = ({ user }) => {
                         conId: currentGroupChat._id,
                         senderEmail: user.emails[0].value,
                         recieverEmail: user.emails[0].value,
-                        text: { type: fileExt, src: "https://ventas-v1.herokuapp.com//images/" + fileName, message: newMessage, createdAt: myDate }
+                        text: { type: fileExt, src: "https://ventas-v1.herokuapp.com/images/" + fileName, message: newMessage, createdAt: myDate }
                     };
                     // console.log(message.text);
 
@@ -320,7 +320,7 @@ const MessangerLayout = ({ user }) => {
                         text: message.text.message
                     });
 
-                    const sendGroupconversation = await axios.post("https://ventas-v1.herokuapp.com//channels/sendMessage", message);
+                    const sendGroupconversation = await axios.post("https://ventas-v1.herokuapp.com/channels/sendMessage", message);
                     console.log(sendGroupconversation.data[0].channelMessages.length - 1);
                     setFetchGroupConversation([...fetchGroupConversation, sendGroupconversation.data[0].channelMessages[sendGroupconversation.data[0].channelMessages.length - 1]]);
                     setNewMessage("");
@@ -350,7 +350,7 @@ const MessangerLayout = ({ user }) => {
             });
 
             // console.log(message);
-            const sendGroupconversation = await axios.post("https://ventas-v1.herokuapp.com//channels/sendMessage/", message);
+            const sendGroupconversation = await axios.post("https://ventas-v1.herokuapp.com/channels/sendMessage/", message);
             // console.log(sendGroupconversation.data[0].channelMessages.length - 1);
             setFetchGroupConversation([...fetchGroupConversation, sendGroupconversation.data[0].channelMessages[sendGroupconversation.data[0].channelMessages.length - 1]]);
             setNewMessage("");
@@ -363,7 +363,7 @@ const MessangerLayout = ({ user }) => {
                 const giveMyEmail = {
                     email: user.emails[0].value
                 }
-                const res = await axios.post("https://ventas-v1.herokuapp.com//users/all", giveMyEmail);
+                const res = await axios.post("https://ventas-v1.herokuapp.com/users/all", giveMyEmail);
                 setAllUsers(res.data);
 
                 // console.log("users rendered");
@@ -376,7 +376,7 @@ const MessangerLayout = ({ user }) => {
                 const giveMyEmail = {
                     email: user.emails[0].value
                 }
-                const res = await axios.post("https://ventas-v1.herokuapp.com//users/friends", giveMyEmail);
+                const res = await axios.post("https://ventas-v1.herokuapp.com/users/friends", giveMyEmail);
                 setFriends(res.data);
 
                 // console.log("friends rendered");
@@ -389,7 +389,7 @@ const MessangerLayout = ({ user }) => {
                 const giveMyEmail = {
                     email: user.emails[0].value
                 }
-                const res = await axios.post("https://ventas-v1.herokuapp.com//channels/all", giveMyEmail);
+                const res = await axios.post("https://ventas-v1.herokuapp.com/channels/all", giveMyEmail);
                 setChannels(res.data);
                 // console.log(channels);
             } catch (err) {
@@ -412,7 +412,7 @@ const MessangerLayout = ({ user }) => {
                         senderName: user.displayName,
                         recieverName: currentChat.username
                     }
-                    const checkconv = await axios.post("https://ventas-v1.herokuapp.com//conversation/find", conversation)
+                    const checkconv = await axios.post("https://ventas-v1.herokuapp.com/conversation/find", conversation)
 
                     const result = checkconv.data ? checkconv.data : false;
 
@@ -421,7 +421,7 @@ const MessangerLayout = ({ user }) => {
                         // console.log("exist");
                     }
                     else {
-                        const savedConv = await axios.post("https://ventas-v1.herokuapp.com//conversation/create", conversation)
+                        const savedConv = await axios.post("https://ventas-v1.herokuapp.com/conversation/create", conversation)
                         // console.log("just Created");
                         setConversationId(savedConv._id);
                     }
@@ -440,7 +440,7 @@ const MessangerLayout = ({ user }) => {
                 conId: conversationId
             }
             const getAllmessages = async () => {
-                const res = await axios.post("https://ventas-v1.herokuapp.com//message/fetchMessage", fetchThisConv);
+                const res = await axios.post("https://ventas-v1.herokuapp.com/message/fetchMessage", fetchThisConv);
                 setFetchMessage(res.data);
                 console.log("fetch:- " + conversationId);
             };
@@ -469,7 +469,7 @@ const MessangerLayout = ({ user }) => {
             }
 
             const getAllGroupMessages = async () => {
-                const res = await axios.post("https://ventas-v1.herokuapp.com//channels/fetchMessages", fetchGroupConv);
+                const res = await axios.post("https://ventas-v1.herokuapp.com/channels/fetchMessages", fetchGroupConv);
                 setFetchGroupConversation(res.data[0].channelMessages);
             };
 
@@ -529,7 +529,7 @@ const MessangerLayout = ({ user }) => {
             email: emailToAdd,
             channelId: channelToAdd
         }
-        const addMemberNow = await axios.post("https://ventas-v1.herokuapp.com//channels/addMemberNow", sendInfo);
+        const addMemberNow = await axios.post("https://ventas-v1.herokuapp.com/channels/addMemberNow", sendInfo);
         console.log(addMemberNow.data);
         if (addMemberNow.status === 200) {
             setCurrentGroupChat(addMemberNow.data);
@@ -542,7 +542,7 @@ const MessangerLayout = ({ user }) => {
             email: emailToRemove,
             channelId: channelFromRmove
         }
-        const removeMemberNow = await axios.post("https://ventas-v1.herokuapp.com//channels/removeMemberNow", sendInfo);
+        const removeMemberNow = await axios.post("https://ventas-v1.herokuapp.com/channels/removeMemberNow", sendInfo);
         console.log(removeMemberNow.data);
         if (removeMemberNow.status === 200) {
             setCurrentGroupChat(removeMemberNow.data);

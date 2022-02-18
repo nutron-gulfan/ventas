@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     const getUser = () => {
-      fetch("https://ventas-v1.herokuapp.com//auth/login/success", {
+      fetch("https://ventas-v1.herokuapp.com/auth/login/success", {
         method: "GET",
         credentials: "include",
         headers: {
