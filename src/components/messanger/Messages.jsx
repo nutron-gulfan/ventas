@@ -9,7 +9,7 @@ const Messages = ({ data, kind, message, clsName }) => {
 
     const downloadNow = async (urlPath) => {
         await axios({
-            url: "https://git.heroku.com/ventas-v1.git/download?path=" + urlPath,
+            url: "https://ventas-v1.herokuapp.com/download?path=" + urlPath,
             method: "GET",
             responseType: "blob"
         }).then((res) => {
