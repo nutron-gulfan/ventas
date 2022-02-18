@@ -38,7 +38,7 @@ function App() {
       <BrowserRouter>
         <div>
           <Routes>
-            <Route path="/" element={user ? <Navigate to="/home" /> : <Login />} />
+            <Route exact path="/" element={user ? <Navigate to="/home" /> : <Login />} />
             <Route path="/home" element={user ? <Home user={user} /> : <Navigate to="/login" />} />
             <Route path="/login" element={user ? <Navigate to="/home" /> : <Login />} />
             <Route path="/messanger" element={user ? <Messanger user={user} /> : <Navigate to="/login" />} />
