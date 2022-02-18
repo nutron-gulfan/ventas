@@ -38,13 +38,13 @@ function App() {
       <BrowserRouter>
         <div>
           <Routes>
-            <Route exact path="/" element={user ? <Navigate to="/home" /> : <Login />} />
-            <Route path="/home" element={user ? <Home user={user} /> : <Navigate to="/login" />} />
-            <Route path="/login" element={user ? <Navigate to="/home" /> : <Login />} />
-            <Route path="/messanger" element={user ? <Messanger user={user} /> : <Navigate to="/login" />} />
-            <Route path="/teams" element={user ? <Teams user={user} /> : <Navigate to="/login" />} />
-            <Route path="/calander" element={user ? <Calander user={user} /> : <Navigate to="/login" />} />
-            <Route path="/profile" element={user ? <Profile user={user} /> : <Navigate to="/login" />} />
+            <Route exact path="/" element={user ? <Navigate to="https://sad-noether-bbc8ba.netlify.app/home" /> : <Login />} />
+            <Route path="/home" element={user ? <Home user={user} /> : <Navigate to="https://sad-noether-bbc8ba.netlify.app/login" />} />
+            <Route path="/login" element={user ? <Navigate to="https://sad-noether-bbc8ba.netlify.app/home" /> : <Login />} />
+            <Route path="/messanger" element={user ? <Messanger user={user} /> : <Navigate to="https://sad-noether-bbc8ba.netlify.app/login" />} />
+            <Route path="/teams" element={user ? <Teams user={user} /> : <Navigate to="https://sad-noether-bbc8ba.netlify.app/login" />} />
+            <Route path="/calander" element={user ? <Calander user={user} /> : <Navigate to="https://sad-noether-bbc8ba.netlify.app/login" />} />
+            <Route path="/profile" element={user ? <Profile user={user} /> : <Navigate to="https://sad-noether-bbc8ba.netlify.app/login" />} />
           </Routes>
         </div>
       </BrowserRouter>
